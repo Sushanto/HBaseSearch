@@ -85,7 +85,7 @@ public class PreprocessInterface
 			{
 				String[] arguments = new String[6];
 				arguments[0] = (String)tableComboBox.getSelectedItem();
-				arguments[1] = arguments[0].equals("Visit") ? " ForeignKeys" : " BasicData";
+				arguments[1] = arguments[0].equals("Visit") ? "ForeignKeys" : "BasicData";
 				arguments[2] = (String)attrComboBox.getSelectedItem();
 				arguments[3] = arguments[2] + "X" + arguments[0];
 				arguments[4] = "Rowkey";

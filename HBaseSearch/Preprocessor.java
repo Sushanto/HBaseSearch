@@ -35,7 +35,7 @@ import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 
 public class Preprocessor
 {
-	protected String sourceTableName, sourceColumnFamily, sourceColumnName, resultTableName, resultColumnFamily, resultColumnName;
+	protected static String sourceTableName, sourceColumnFamily, sourceColumnName, resultTableName, resultColumnFamily, resultColumnName;
 
 	protected void createResultTable(Configuration conf, String tableName, String columnFamily)
 	throws Exception
@@ -94,7 +94,7 @@ public class Preprocessor
 		return job.waitForCompletion(true);
 	}
 
-	public class PreprocessorMapper extends TableMapper<Text, Text>
+	public static class PreprocessorMapper extends TableMapper<Text, Text>
 	{
 		private Text key = new Text();
 		private Text val = new Text();
@@ -111,7 +111,7 @@ public class Preprocessor
 		}
 	}
 
-	public class PreprocessorReducer extends TableReducer<Text, Text, ImmutableBytesWritable>
+	public static class PreprocessorReducer extends TableReducer<Text, Text, ImmutableBytesWritable>
 	{
 		Text result = new Text();
 
