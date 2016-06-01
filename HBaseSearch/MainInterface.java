@@ -91,8 +91,21 @@ public class MainInterface
 		{
 			public void actionPerformed(ActionEvent ae)
 			{
-				// new SearchInterface();
-				// mainFrame.dispose();
+				try
+				{
+					if( !TableUtils.isExists("PatientIDXVisit") || ! TableUtils.isExists("DoctorIDXVisit"))
+					{
+						JOptionPane.showMessageDialog(jframe, "First preprocess Visit table!");
+						return;
+					}
+					new SearchInterface();
+					mainFrame.dispose();
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(jframe, "Some error occured! Try again later!!");
+				}
 			}
 		});
 

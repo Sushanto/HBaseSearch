@@ -51,6 +51,7 @@ public class Preprocessor
 		HTableDescriptor resultTable = new HTableDescriptor(tableName);
 		resultTable.addFamily(new HColumnDescriptor(Bytes.toBytes(columnFamily)));
 		admin.createTable(resultTable);
+		admin.close();
 	}
 
 
